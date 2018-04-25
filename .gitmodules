@@ -1,0 +1,9 @@
+[submodule "ewolff/SCS-ESI"]
+	path = ewolff/SCS-ESI
+	url = git@github.com:mc-b/SCS-ESI.git
+[submodule "ewolff/microservice-kubernetes"]
+	path = ewolff/microservice-kubernetes
+	url = git@github.com:mc-b/microservice-kubernetes.git
+[submodule "ewolff/microservice-kafka"]
+	path = ewolff/microservice-kafka
+	url = git@github.com:mc-b/microservice-kafka.git
