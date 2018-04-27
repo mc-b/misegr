@@ -20,12 +20,12 @@ Vagrant.configure("2") do |config|
   # using a specific IP.
   config.vm.hostname = "misegr"
   config.vm.network "private_network", ip: "192.168.60.100"
-  # config.vm.network "public_network", ip:"192.168.60.100"
+  # config.vm.network "public_network", bridge: "enp0s8"
   
   # default router TBZ.
   # config.vm.provision "shell",
   #   run: "always",
-  #  inline: "route add default gw 10.1.66.254 enp0s8"  
+  #   inline: "route add default gw 192.168.178.1 enp0s8 && route del default gw 10.0.2.2 enp0s3"   
 
   config.vm.provider "virtualbox" do |vb|
      vb.memory = "6144"
@@ -51,7 +51,7 @@ Vagrant.configure("2") do |config|
   "hosts": [
     "127.0.0.1",
     "vgkube",
-    "192.168.60.100"
+    "$(hostname -I | cut -d ' ' -f 2)"
   ],
   "key": {
     "algo": "rsa",
@@ -126,7 +126,7 @@ WantedBy=multi-user.target
     sudo apt-get update
     sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
     
-    sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address 192.168.60.100
+    sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address  $(hostname -I | cut -d ' ' -f 2)
     
     mkdir -p $HOME/.kube
 	sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
