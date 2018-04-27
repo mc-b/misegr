@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: microservice-kubernetes-demo-apache
-        image: misegr/microservice-kubernetes-demo-apache:0.0.1
+        image: misegr/microservice-kubernetes-demo-apache:v0.0.1
         imagePullPolicy: IfNotPresent          
         ports:
         - containerPort: 80
