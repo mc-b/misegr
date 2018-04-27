@@ -12,19 +12,16 @@ Basierend auf dem Buch [Microservices-Praxisbuch](http://microservices-praxisbuc
 
 ### Installation 
 
-Dieses Repository in der Git/Bash Shell clonen:
+Dieses Repository in der Git/Bash Shell clonen und Virtuelle Maschine (VM) erstellen:
 
 	git clone https://github.com/mc-b/misegr.git
-
-[docker](https://download.docker.com/win/static/stable/x86_64/) und [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) downloaden und ausführbare Dateien ins `bin` Verzeichnis ablegen
-
-Virtuelle Maschine erstellen:
-
 	cd misegr
 	vagrant up
 	exit
 
-Beim Starten werden mehrere BATCH-Dateien angelegt:
+[docker](https://download.docker.com/win/static/stable/x86_64/) und [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) downloaden und ausführbare Dateien ins `misegr/bin` Verzeichnis ablegen	
+
+Beim Erstellen der VM werden mehrere BATCH-Dateien angelegt:
 
 * `dockerps.bat` - Setzen der Umgebungsvariablen für den Zugriff auf die VM und Starten der Kommandline (PowerShell) 
 * `dashboard.bat` - Aufstarten des Kubernetes Dashboards
@@ -33,7 +30,7 @@ Beim Starten werden mehrere BATCH-Dateien angelegt:
 
 Es stehen folgende Microservice Beispiel zur Verfügung
 * [Microservices-Praxisbuch](ewolff/)
-
+* [BPMN Beispiel inkl. Tutorial](https://github.com/mc-b/bpmn-tutorial)
 
 ### Dashboard
 
@@ -52,3 +49,10 @@ Die Weave Scope kann in der PowerShell wie folgt gestartet werden:
 	$env:pod=(kubectl get -n weave pod --selector=weave-scope-component=app -o jsonpath='{.items..metadata.name}')
 	start-process http://localhost:4040
 	kubectl port-forward -n weave $env:pod 4040
+
+### Links
+
+* [Maven Umgebung](https://github.com/mc-b/devops/tree/master/kubernetes/dockerindocker)
+* [Jenkins Umgebung](https://github.com/mc-b/devops/tree/master/kubernetes/devops#jenkins-mit-blueocean)
+* [DevOps GitHub Projekt](https://github.com/mc-b/devops)
+
