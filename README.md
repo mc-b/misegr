@@ -54,5 +54,6 @@ Die Weave Scope Oberfläche kann in der PowerShell wie folgt gestartet werden:
 
 * [Maven Umgebung](https://github.com/mc-b/devops/tree/master/kubernetes/dockerindocker)
 * [Jenkins Umgebung](https://github.com/mc-b/devops/tree/master/kubernetes/devops#jenkins-mit-blueocean)
+* [Kubernetes Cluster einrichten](https://github.com/mc-b/devops/blob/master/kubernetes/README.md#cluster-einrichten)
 * [DevOps GitHub Projekt](https://github.com/mc-b/devops)
 
