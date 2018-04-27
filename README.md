@@ -44,7 +44,7 @@ Der Logindialog kann mit `Skip` übersprungen werden.
 
 [Weave Scope](https://www.weave.works/) ist ein Werkzeug zur grafischen Visualisierung Ihrer Container, Pods, Dienste usw.
 
-Die Weave Scope kann in der PowerShell wie folgt gestartet werden:
+Die Weave Scope Oberfläche kann in der PowerShell wie folgt gestartet werden:
 
 	$env:pod=(kubectl get -n weave pod --selector=weave-scope-component=app -o jsonpath='{.items..metadata.name}')
 	start-process http://localhost:4040
