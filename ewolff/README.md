@@ -1,7 +1,9 @@
 Beispiele aus dem Buch Microservices Rezepte
 --------------------------------------------
 
-Diese Beispiele sind aus dem Microservices Buch, dass unter [https://github.com/ewolff/microservice](https://github.com/ewolff/microservice) zu finden ist.
+Diese Beispiele basieren auf dem Buch [Microservices-Praxisbuch](http://microservices-praxisbuch.de/rezepte.html).
+
+Sie wurden adaptiert und erweitert für [Kubernetes](https://kubernetes.io/).
 
 Um die Beispiele zu Compilieren braucht es eine Java/Maven Umgebung mit `docker` und `kubectl`.
 
@@ -37,7 +39,7 @@ Anschliessend können die Microservices gestartet werden:
 	cd /src/ewolff 
 	kubectl create -f SCS-ESI.yaml
 	kubectl create -f SCS-ESI-order.yaml
-	kubectl get pods
+	kubectl get pods -n scsesi
     
 Probieren mittels [http://ip NodePort:32080](http://192.168.60.100:32080) und [http://ip NodePort:32090](http://192.168.60.100:32090).
 
@@ -75,9 +77,9 @@ Anschliessend können die Microservices gestartet werden:
 	
 	cd /src/ewolff 
 	kubectl create -f ms-kafka/
-    kubectl get pods | grep mskafka	
+    kubectl get pods -n ms-kafka	
 
-Probieren mittels [http://ip NodePort:32080](http://192.168.60.100:32080).
+Probieren mittels [http://ip NodePort:32180](http://192.168.60.100:32180).
 
 Nach dem Test die Container wieder beenden, mittels:
 
@@ -132,9 +134,9 @@ Anschliessend können die Microservices gestartet werden:
 
 	cd /src/ewolff
 	kubectl create -f ms-kubernetes/
-    kubectl get pods | grep microservice	
+    kubectl get pods -n ms-kubernetes	
 
-Probieren mittels [http://ip NodePort:32080](http://192.168.60.100:32080).
+Probieren mittels [http://ip NodePort:32280](http://192.168.60.100:32280).
 
 Nach dem Test die Container wieder beenden, mittels:
 

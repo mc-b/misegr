@@ -22,31 +22,20 @@ Virtuelle Maschine erstellen:
 
 	cd misegr
 	vagrant up
+	exit
 
-Evtl. ist vorher die fixe IP und der Hostname im Vagrantfile anzupassen. Siehe Bemerkungen im Vagrantfile.
+Beim Starten werden mehrere BATCH-Dateien angelegt:
 
-Beim Starten werden zwei Verzeichnisse angelegt:
+* `dockerps.bat` - Setzen der Umgebungsvariablen für den Zugriff auf die VM und Starten der Kommandline (PowerShell) 
+* `dashboard.bat` - Aufstarten des Kubernetes Dashboards
 
-- .docker - Zertifikate für Docker Client 
-- .kube - Konfigurationsdatei und Zertifikate für Kubernetes.
+### Microservices Beispiele
 
-Diese zwei Verzeichnisse sind ins HOME Verzeichnis des Users zu kopieren.
+Es stehen folgende Microservice Beispiel zur Verfügung
+* [Microservices-Praxisbuch](ewolff/)
 
-Anschliessend kann mittels `docker` und `kubectl` die Kubernetes VM gesteuert werden
 
-	docker -H <fixe IP>:2376 --tls ps
-	kubectl get services
-
-Um auf die `-H` und `--tls` Argumente verzichten zu können sind folgende Umgebungsvariablen zu setzen:
-
-	DOCKER_HOST=tcp://<fixe-IP>:2376
-	DOCKER_TLS_VERIFY=1
-
-Wird die IP-Adresse oder der Hostname geändert, muss die Virtuelle Maschine frisch erstellt werden.
-
-ACHTUNG: Evtl. gesetzte Umgebungsvariable `DOCKER_CERT_PATH` darf nicht gesetzt sein.
-
-#### Dashboard
+### Dashboard
 
 Das Dashboard ist Standardmässig nicht erreichbar. Dazu muss zuerst ein Proxy zur lokalen Maschine eingerichtet werden:
 	
@@ -54,9 +43,12 @@ Diese Arbeit und das Starten des Browsers übernimmt die Datei `dashboard.bat`.
 	
 Der Logindialog kann mit `Skip` übersprungen werden.
 
-### Weave Scope u
+### Weave Scope 
 
 [Weave Scope](https://www.weave.works/) ist ein Werkzeug zur grafischen Visualisierung Ihrer Container, Pods, Dienste usw.
 
-Die Weave Scope kann mittels der Datei `weave.bat` gestartet werden. Dabei wird ein Proxy auf Port 4040 eingerichtet und [http://localhost:4040](http://localhost:4040) im Browser geöffnet.
+Die Weave Scope kann in der PowerShell wie folgt gestartet werden:
 
+	$env:pod=(kubectl get -n weave pod --selector=weave-scope-component=app -o jsonpath='{.items..metadata.name}')
+	start-process http://localhost:4040
+	kubectl port-forward -n weave $env:pod 4040

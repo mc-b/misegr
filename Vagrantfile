@@ -19,13 +19,13 @@ Vagrant.configure("2") do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.hostname = "misegr"
-  # config.vm.network "private_network", ip: "192.168.60.100"
-  config.vm.network "public_network", bridge: "enp0s8"
+  config.vm.network "private_network", ip: "192.168.60.100"
+  # config.vm.network "public_network", bridge: "enp0s8"
   
   # default router TBZ.
-  config.vm.provision "shell",
-    run: "always",
-    inline: "route add default gw 192.168.178.1 enp0s8 && route del default gw 10.0.2.2 enp0s3"   
+  # config.vm.provision "shell",
+  #  run: "always",
+  #  inline: "route add default gw 192.168.178.1 enp0s8 && route del default gw 10.0.2.2 enp0s3"   
 
   config.vm.provider "virtualbox" do |vb|
      vb.memory = "6144"
