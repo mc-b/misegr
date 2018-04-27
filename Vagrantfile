@@ -19,20 +19,22 @@ Vagrant.configure("2") do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.hostname = "misegr"
-  config.vm.network "private_network", ip: "192.168.60.100"
-  # config.vm.network "public_network", bridge: "enp0s8"
+  # config.vm.network "private_network", ip: "192.168.60.100"
+  config.vm.network "public_network", bridge: "enp0s8"
   
   # default router TBZ.
-  # config.vm.provision "shell",
-  #   run: "always",
-  #   inline: "route add default gw 192.168.178.1 enp0s8 && route del default gw 10.0.2.2 enp0s3"   
+  config.vm.provision "shell",
+    run: "always",
+    inline: "route add default gw 192.168.178.1 enp0s8 && route del default gw 10.0.2.2 enp0s3"   
 
   config.vm.provider "virtualbox" do |vb|
-     vb.memory = "6144"
+     vb.memory = "4096"
   end
 
   # Docker Provisioner
   config.vm.provision "docker" do |d|
+     d.pull_images "maven"
+     d.pull_images "jenkinsci/blueocean"
   end
   
   config.vm.provision "shell", inline: <<-SHELL 
@@ -124,7 +126,7 @@ WantedBy=multi-user.target
 	curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
     sudo echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" >> /etc/apt/sources.list.d/Kubernetes.list
     sudo apt-get update
-    sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+    sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni dos2unix
     
     sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address  $(hostname -I | cut -d ' ' -f 2)
     
@@ -169,6 +171,38 @@ WantedBy=multi-user.target
 	
 	# Weave Scope 
 	kubectl apply -f "https://cloud.weave.works/k8s/scope.yaml?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+	
+	# Namespaces Microservices
+	kubectl create namespace scsesi
+	kubectl create namespace ms-kafka
+	kubectl create namespace ms-kubernetes
+	
+	cat >/vagrant/dashboard.bat <<%EOF%
+REM Startet den Browser mit der Dashboard Startseite und den Proxy 
+cd /d %~d0%~p0
+set DOCKER_HOST=tcp://$(hostname -I | cut -d ' ' -f 2):2376
+set DOCKER_TLS_VERIFY=1
+set DOCKER_CERT_PATH=%~d0%~p0.docker
+set PATH=%PATH%;%~d0%~p0bin
+set KUBECONFIG=%~d0%~p0.kube\\config
+start http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/. /B
+kubectl proxy        
+%EOF%
+	unix2dos /vagrant/dashboard.bat
+	
+	cat >/vagrant/dockerps.bat <<%EOF%
+REM Setzt die Docker Umgebungsvariablen und startet PowerShell 
+cd /d %~d0%~p0
+set DOCKER_HOST=tcp://$(hostname -I | cut -d ' ' -f 2):2376
+set DOCKER_TLS_VERIFY=1
+set DOCKER_CERT_PATH=%~d0%~p0.docker
+set PATH=%~d0%~p0bin;~d0%~p0git\\bin;%~d0%~p0git\\mingw64\\bin;%~d0%~p0git\\usr\\bin;%PATH%
+set KUBECONFIG=%~d0%~p0.kube\\config
+powershell.exe      
+%EOF%
+	unix2dos /vagrant/dockerps.bat
+	
+	curl -L https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/windows/amd64/kubectl.exe -o /vagrant/bin/kubectl.exe
 	
 SHELL
 end

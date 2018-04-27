@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: apache
+  namespace: ms-kubernetes  
   labels:
     app: apache
     group: web
@@ -18,6 +19,7 @@ apiVersion: apps/v1beta2 # for versions before 1.8.0 use apps/v1beta1
 kind: Deployment
 metadata:
   name: microservice-kubernetes-demo-apache
+  namespace: ms-kubernetes  
 spec:
   replicas: 1
   selector:

@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: common
+  namespace: scsesi
   labels:
     app: scsesi-common
     group: ewolff-scsesi
@@ -18,6 +19,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: scsesi-common
+  namespace: scsesi
 spec:
   replicas: 1
   selector:
@@ -42,6 +44,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: order
+  namespace: scsesi
   labels:
     app: scsesi-order
     group: ewolff-scsesi
@@ -57,6 +60,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: scsesi-order
+  namespace: scsesi
 spec:
   replicas: 1
   selector:
@@ -81,6 +85,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: scsesi-varnish
+  namespace: scsesi
   labels:
     app: scsesi-varnish
     group: ewolff-scsesi
@@ -98,6 +103,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: scsesi-varnish
+  namespace: scsesi
 spec:
   replicas: 1
   selector:

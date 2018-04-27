@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: order-standalone
+  namespace: scsesi
   labels:
     app: scsesi-order-standalone
     group: ewolff-scsesi
@@ -19,6 +20,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: scsesi-order-standalone
+  namespace: scsesi
 spec:
   replicas: 1
   selector:
