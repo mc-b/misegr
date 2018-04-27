@@ -8,6 +8,10 @@ Basierend auf dem Buch [Microservices-Praxisbuch](http://microservices-praxisbuc
 * [VirtualBox](https://www.virtualbox.org/)
 * [Vagrant](https://www.vagrantup.com/) 
 
+Nach der Vagrant Installation ist das Plug-in [vagrant-disksize](https://github.com/sprotheroe/vagrant-disksize) zu Installieren um genügend Speicherplatz für die Microservices zur Verfügung zu stellen:
+
+	vagrant plugin install vagrant-disksize
+
 **Hinweis:** Git auf Windows ohne CR/LF Umwandlung installieren.
 
 ### Installation 
