@@ -23,7 +23,7 @@ Dieses Repository in der Git/Bash Shell clonen und Virtuelle Maschine (VM) erste
 	vagrant up
 	exit
 
-[docker](https://download.docker.com/win/static/stable/x86_64/) und [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) downloaden und ausführbare Dateien ins `misegr/bin` Verzeichnis ablegen	
+*Optional*: [docker](https://download.docker.com/win/static/stable/x86_64/) downloaden, entpacken und `docker.exe` im `misegr/bin` Verzeichnis ablegen	
 
 Beim Erstellen der VM werden mehrere BATCH-Dateien angelegt:
 
@@ -48,7 +48,7 @@ Der Logindialog kann mit `Skip` übersprungen werden.
 
 [Weave Scope](https://www.weave.works/) ist ein Werkzeug zur grafischen Visualisierung Ihrer Container, Pods, Dienste usw.
 
-Die Weave Scope Oberfläche kann in der PowerShell wie folgt gestartet werden:
+Die Weave Scope Oberfläche kann in der PowerShell, wie folgt, gestartet werden:
 
 	$env:pod=(kubectl get -n weave pod --selector=weave-scope-component=app -o jsonpath='{.items..metadata.name}')
 	start-process http://localhost:4040
