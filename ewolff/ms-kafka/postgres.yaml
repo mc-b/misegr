@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: mskafka-postgres
-        image: mskafka_postgres
+        image: misegr/mskafka_postgres
         imagePullPolicy: IfNotPresent    
         env:
         - name: POSTGRES_PASSWORD

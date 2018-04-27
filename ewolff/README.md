@@ -18,16 +18,16 @@ Um die Befehle unten abzusetzen ist zuerst die Java/Maven Umgebung zu starten un
 
 Für in sich geschlossene Systeme müssen mehrere Frontends integriert werden. Dieses Beispiel zeigt, wie dies zu tun ist. Varnish dient als Cache, und ESI (Edge Side Includes) wird verwendet, um mehrere Backends in eine HTTP-Site zu integrieren.
 
-Microservices compilieren und Docker Images aufbereiten:
+Microservices compilieren und Docker Images aufbereiten (optional):
 
 	cd /src/ewolff
 	git clone https://github.com/mc-b/SCS-ESI.git
 	cd SCS-ESI/scs-demo-esi-order/
 	mvn clean package -Dmaven.test.skip=true
 	cd ..
-    docker build -t scsesi_varnish docker/varnish
-    docker build -t scsesi_common scs-demo-esi-common
-    docker build -t scsesi_order scs-demo-esi-order
+    docker build -t misegr/scsesi_varnish docker/varnish
+    docker build -t misegr/scsesi_common scs-demo-esi-common
+    docker build -t misegr/scsesi_order scs-demo-esi-order
 	docker images | grep scs
 
 Die compilierten Microservices werden im Startverzeichnis der VM abgelegt. 	
@@ -54,7 +54,7 @@ Nach dem Test die Container wieder beenden, mittels:
 
 Dies ist ein Beispiel um zu zeigen, wie Kafka für die Kommunikation zwischen Microservices verwendet werden kann.
 
-Microservices compilieren und Docker Images aufbereiten:
+Microservices compilieren und Docker Images aufbereiten (optional):
 
 	cd /src/ewolff
 	git clone https://github.com/mc-b/microservice-kafka.git
@@ -62,11 +62,11 @@ Microservices compilieren und Docker Images aufbereiten:
 	mvn clean package -Dmaven.test.skip=true
 	cd ..
 	
-    docker build -t mskafka_apache docker/apache	
-    docker build -t mskafka_postgres docker/postgres
-    docker build -t mskafka_order microservice-kafka/microservice-kafka-order
-    docker build -t mskafka_shipping microservice-kafka/microservice-kafka-shipping
-    docker build -t mskafka_invoicing microservice-kafka/microservice-kafka-invoicing
+    docker build -t misegr/mskafka_apache docker/apache	
+    docker build -t misegr/mskafka_postgres docker/postgres
+    docker build -t misegr/mskafka_order microservice-kafka/microservice-kafka-order
+    docker build -t misegr/mskafka_shipping microservice-kafka/microservice-kafka-shipping
+    docker build -t misegr/mskafka_invoicing microservice-kafka/microservice-kafka-invoicing
 	docker images | grep mskafka
 	
 Die compilierten Microservices werden im Startverzeichnis der VM abgelegt. 	
@@ -110,7 +110,7 @@ Das System hat drei Microservices:
 - Customer für Kundendaten
 - Catalog für die Waren
 
-Microservices compilieren und Docker Images aufbereiten:
+Microservices compilieren und Docker Images aufbereiten (optional):
 
 	cd /src/ewolff
 	git clone https://github.com/mc-b/microservice-kubernetes.git
@@ -118,12 +118,12 @@ Microservices compilieren und Docker Images aufbereiten:
 	mvn clean package -Dmaven.test.skip=true
 	
 	# docker build
-	docker build --tag=microservice-kubernetes-demo-apache:0.0.1 apache
-	docker build --tag=microservice-kubernetes-demo-catalog:0.0.1 microservice-kubernetes-demo-catalog
-	docker build --tag=microservice-kubernetes-demo-customer:0.0.1 microservice-kubernetes-demo-customer
-	docker build --tag=microservice-kubernetes-demo-customer:0.0.1 microservice-kubernetes-demo-customer
-	docker build --tag=microservice-kubernetes-demo-order:0.0.1 microservice-kubernetes-demo-order
-	docker build --tag=microservice-kubernetes-demo-hystrix-dashboard:0.0.1 microservice-kubernetes-demo-hystrix-dashboard
+	docker build -t misegr/microservice-kubernetes-demo-apache:v0.0.1 apache
+	docker build -t misegr/microservice-kubernetes-demo-catalog:v0.0.1 microservice-kubernetes-demo-catalog
+	docker build -t misegr/microservice-kubernetes-demo-customer:v0.0.1 microservice-kubernetes-demo-customer
+	docker build -t misegr/microservice-kubernetes-demo-customer:v0.0.1 microservice-kubernetes-demo-customer
+	docker build -t misegr/microservice-kubernetes-demo-order:v0.0.1 microservice-kubernetes-demo-order
+	docker build -t misegr/microservice-kubernetes-demo-hystrix-dashboard:v0.0.1 microservice-kubernetes-demo-hystrix-dashboard
 	docker images | grep microservice
    
 Die compilierten Microservices werden im Startverzeichnis der VM abgelegt. 	

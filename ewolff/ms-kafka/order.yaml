@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: mskafka-order
-        image: mskafka_order
+        image: misegr/mskafka_order
         imagePullPolicy: IfNotPresent    
         env:
         - name: SPRING_KAFKA_BOOTSTRAP_SERVERS

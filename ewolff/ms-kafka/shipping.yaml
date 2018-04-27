@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: mskafka-shipping
-        image: mskafka_shipping
+        image: misegr/mskafka_shipping
         imagePullPolicy: IfNotPresent    
         env:
         - name: SPRING_KAFKA_BOOTSTRAP_SERVERS

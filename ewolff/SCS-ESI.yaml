@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: scsesi-common
-        image: scsesi_common
+        image: misegr/scsesi_common
         imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 8080    
@@ -71,7 +71,7 @@ spec:
     spec:
       containers:
       - name: scsesi-order
-        image: scsesi_order
+        image: misegr/scsesi_order
         imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 8080        
@@ -112,7 +112,7 @@ spec:
     spec:
       containers:
       - name: scsesi-varnish
-        image: scsesi_varnish
+        image: misegr/scsesi_varnish
         imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 8080

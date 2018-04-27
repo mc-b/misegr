@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: scsesi-order-standalone
-        image: scsesi_order
+        image: misegr/scsesi_order
         imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 8080        

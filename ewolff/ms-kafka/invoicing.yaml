@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: mskafka-invoicing
-        image: mskafka_invoicing
+        image: misegr/mskafka_invoicing
         imagePullPolicy: IfNotPresent    
         env:
         - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
