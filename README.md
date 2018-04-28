@@ -1,7 +1,5 @@
 # Beispiele zum Kurs [Microservices-Grundlagen («MISEGR»)](https://www.digicomp.ch/weiterbildung/web-und-softwareentwicklungs-trainings/software-engineering/softwarearchitektur/microservices-grundlagen)
 
-Basierend auf dem Buch [Microservices-Praxisbuch](http://microservices-praxisbuch.de/rezepte.html) adaptiert und erweitert für [Kubernetes](https://kubernetes.io/).
-
 ### Benötigte Software
 
 * [Git](https://git-scm.com/)
@@ -33,7 +31,7 @@ Beim Erstellen der VM werden mehrere BATCH-Dateien angelegt:
 ### Microservices Beispiele
 
 Es stehen folgende Microservice Beispiel zur Verfügung
-* [Microservices-Praxisbuch](ewolff/)
+* [Microservices](ewolff/) - Basierend auf dem Buch [Microservices-Praxisbuch](http://microservices-praxisbuch.de/rezepte.html) adaptiert und erweitert für [Kubernetes](https://kubernetes.io/).
 * [BPMN Beispiel inkl. Tutorial](https://github.com/mc-b/bpmn-tutorial)
 
 ### Dashboard
