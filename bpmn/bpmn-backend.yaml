@@ -9,7 +9,6 @@ metadata:
 spec:
   ports:
   - port: 8090
-    targetPort: 8090
     protocol: TCP
   selector:
     app: bpmn-backend
@@ -39,19 +38,4 @@ spec:
           name: bpmn-backend    
         stdin: true 
         tty: true  
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: bpmn-backend
-  labels:
-    app: bpmn-backend
-    tier: frontend  
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /myapp
-        backend:
-          serviceName: bpmn-backend
-          servicePort: 8090            
+           

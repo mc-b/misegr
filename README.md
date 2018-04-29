@@ -32,7 +32,7 @@ Beim Erstellen der VM werden mehrere BATCH-Dateien angelegt:
 
 Es stehen folgende Microservice Beispiel zur Verfügung
 * [Microservices](ewolff/) - Basierend auf dem Buch [Microservices-Praxisbuch](http://microservices-praxisbuch.de/rezepte.html) adaptiert und erweitert für [Kubernetes](https://kubernetes.io/).
-* [BPMN Beispiel inkl. Tutorial](https://github.com/mc-b/bpmn-tutorial)
+* [BPMN Beispiel](bpmn/)
 
 ### Dashboard
 
