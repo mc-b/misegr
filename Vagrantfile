@@ -21,8 +21,21 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "misegr"
   config.vm.network "private_network", ip: "192.168.60.100"
   # config.vm.network "public_network", bridge: "enp0s8"
-  
-  # default router TBZ.
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # NOTE: This will enable public access to the opened port
+  config.vm.network "forwarded_port", guest: 32100, host: 32100
+  config.vm.network "forwarded_port", guest: 32200, host: 32200
+  config.vm.network "forwarded_port", guest: 32300, host: 32300
+  config.vm.network "forwarded_port", guest: 32080, host: 32080
+  config.vm.network "forwarded_port", guest: 32090, host: 32090
+  config.vm.network "forwarded_port", guest: 32180, host: 32180
+  config.vm.network "forwarded_port", guest: 32280, host: 32280
+  config.vm.network "forwarded_port", guest: 30443, host: 30443
+      
+  # default router.
   # config.vm.provision "shell",
   #  run: "always",
   #  inline: "route add default gw 192.168.178.1 enp0s8 && route del default gw 10.0.2.2 enp0s3"   
@@ -33,7 +46,7 @@ Vagrant.configure("2") do |config|
 
   # Docker Provisioner
   config.vm.provision "docker" do |d|
-     d.pull_images "maven"
+     d.pull_images "maven:3-alpine"
      d.pull_images "jenkinsci/blueocean"
   end
   
