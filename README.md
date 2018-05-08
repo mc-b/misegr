@@ -48,6 +48,12 @@ Der Logindialog kann mit `Skip` übersprungen werden.
 
 Die Weave Scope Oberfläche, kann in der PowerShell, mittels `waeve.bat` gestartet werden.
 
+### Weitere Hilfsscripts
+
+* `dockerps.bat` - Setzt die Umgebungsvariablen für den Zugriff auf den Cluster und startet PowerShell
+* `runbash <name>` - Wechselt in die Bash eines Laufenden Pods (braucht ein Deployment)
+* `startsvc <name>` - Öffnet die Weboberfläche eines Services
+
 ### Links
 
 * [Maven Umgebung](https://github.com/mc-b/devops/tree/master/kubernetes/dockerindocker)
