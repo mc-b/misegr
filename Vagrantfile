@@ -40,6 +40,9 @@ Vagrant.configure("2") do |config|
   #  run: "always",
   #  inline: "route add default gw 192.168.178.1 enp0s8 && route del default gw 10.0.2.2 enp0s3"   
 
+  # Gemeinsames Datenverzeichnis fuer Kubernetes Master und Nodes
+  config.vm.synced_folder "data", "/data"
+  
   config.vm.provider "virtualbox" do |vb|
      vb.memory = "6144"
   end
