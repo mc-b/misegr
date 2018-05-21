@@ -141,6 +141,30 @@ Probieren mittels [http://ip NodePort:32280](http://192.168.60.100:32280).
 Nach dem Test die Container wieder beenden, mittels:
 
 	kubectl delete -f ms-kubernetes/
+	
+#### Testen
+
+Kunden anzeigen (im JSON Format) und anlegen/ändern
+
+	curl -X GET http://lernkube:32280/customer/customer
+
+	curl -X POST http://lernkube:32280/customer/form.html \
+	     -H "Content-Type: application/x-www-form-urlencoded" \
+		 -d "name=name2" -d "firstname=firstname2" -d "email=mail@ch.ch" -d "street=street2" -d "city=city 2" 
+
+
+Produkte anzeigen 
+
+	curl -X GET http://x1:32280/catalog/catalog
+
+Produkte Bestellen
+
+	curl -X POST http://x1:32280/order/ \
+	     -H "Content-Type: application/x-www-form-urlencoded" \
+	     -d "customerId=1" \
+	     -d "orderLine[0].count=1" \
+	     -d "orderLine[0].itemId=3"
+		 
 	    
 #### Links
 
