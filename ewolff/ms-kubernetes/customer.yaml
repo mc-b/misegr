@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: microservice-kubernetes-demo-customer
-        image: misegr/microservice-kubernetes-demo-customer:v0.0.1
+        image: misegr/microservice-kubernetes-demo-customer:v0.0.2
         imagePullPolicy: IfNotPresent    
         ports:
         - containerPort: 8080
