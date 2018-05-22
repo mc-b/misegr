@@ -37,9 +37,8 @@ Vagrant.configure("2") do |config|
   # jupyter/beakerX (ML)
   config.vm.network "forwarded_port", guest: 32088, host: 32088
   config.vm.network "forwarded_port", guest: 32288, host: 32288
-  # Kubernetes Ports (ingress, api)
+  # Kubernetes Port (ingress)
   config.vm.network "forwarded_port", guest: 30443, host: 30443
-  config.vm.network "forwarded_port", guest: 6443, host: 6443
       
   # default router.
   # config.vm.provision "shell",
@@ -225,6 +224,17 @@ powershell.exe
 	unix2dos /vagrant/dockerps.bat
 	
 	curl -L https://storage.googleapis.com/kubernetes-release/release/v1.10.0/bin/windows/amd64/kubectl.exe -o /vagrant/bin/kubectl.exe
+	
+	# Hilfsprogramme
+	# kubectl create -f https://raw.githubusercontent.com/mc-b/devops/master/kubernetes/devops/jenkins.yaml
+	# kubectl create -f https://raw.githubusercontent.com/mc-b/devops/master/kubernetes/mysql/adminer.yaml
+	
+	# Microservices
+	# cd /vagrant
+	# kubectl create -f ewolff/
+	# kubectl create -f ewolff/ms-kafka/
+	# kubectl create -f ewolff/ms-kubernetes/
+	# kubectl create -f bpmn/	
 	
 SHELL
 end
