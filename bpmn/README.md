@@ -30,7 +30,7 @@ Nach dem Starten muss der Rechnungsprozess in die Workflow Engine importiert wer
 	-F "enable-duplicate-filtering=true" \
 	-F "deploy-changed-only=true" \
 	-F "Rechnung.bpmn=@RechnungStep3.bpmn" \
-	https://192.168.60.100:30443/engine-rest/deployment/create
+	https://localhost:30443/engine-rest/deployment/create
 
 ### Frontend
 
