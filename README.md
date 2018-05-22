@@ -28,6 +28,13 @@ Beim Erstellen der VM werden mehrere BATCH-Dateien angelegt:
 * `dockerps.bat` - Setzen der Umgebungsvariablen für den Zugriff auf die VM und Starten der Kommandline (PowerShell) 
 * `dashboard.bat` - Aufstarten des Kubernetes Dashboards
 
+*Optional*: Zusätzliche Services wie `jenkins`, `jupyter/beakerX`, DockerInDocker `dind` und SQL Web UI `adminer` starten.
+
+	kubectl create -f https://raw.githubusercontent.com/mc-b/devops/master/kubernetes/devops/jenkins.yaml
+	kubectl create -f https://raw.githubusercontent.com/mc-b/devops/master/kubernetes/jupyter/beakerx.yaml
+	kubectl create -f https://raw.githubusercontent.com/mc-b/devops/master/kubernetes/jupyter/dind.yaml
+	kubectl create -f https://raw.githubusercontent.com/mc-b/devops/master/kubernetes/mysql/adminer.yaml
+
 ### Microservices Beispiele
 
 Es stehen folgende Microservice Beispiel zur Verfügung

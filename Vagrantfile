@@ -23,17 +23,23 @@ Vagrant.configure("2") do |config|
   # config.vm.network "public_network", bridge: "enp0s8"
 
   # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # within the machine from a port on the host machine. 
   # NOTE: This will enable public access to the opened port
+  # gogs, kanboard, jenkins
   config.vm.network "forwarded_port", guest: 32100, host: 32100
   config.vm.network "forwarded_port", guest: 32200, host: 32200
   config.vm.network "forwarded_port", guest: 32300, host: 32300
+  # microservices
   config.vm.network "forwarded_port", guest: 32080, host: 32080
   config.vm.network "forwarded_port", guest: 32090, host: 32090
   config.vm.network "forwarded_port", guest: 32180, host: 32180
   config.vm.network "forwarded_port", guest: 32280, host: 32280
+  # jupyter/beakerX (ML)
+  config.vm.network "forwarded_port", guest: 32088, host: 32088
+  config.vm.network "forwarded_port", guest: 32288, host: 32288
+  # Kubernetes Ports (ingress, api)
   config.vm.network "forwarded_port", guest: 30443, host: 30443
+  config.vm.network "forwarded_port", guest: 6443, host: 6443
       
   # default router.
   # config.vm.provision "shell",
