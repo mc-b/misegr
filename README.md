@@ -59,7 +59,7 @@ Der Logindialog kann mit `Skip` übersprungen werden.
 
 [Weave Scope](https://www.weave.works/) ist ein Werkzeug zur grafischen Visualisierung Ihrer Container, Pods, Dienste usw.
 
-Die Weave Scope Oberfläche, kann in der PowerShell, mittels `waeve.bat` gestartet werden.
+Die Weave Scope Oberfläche, kann in der PowerShell, mittels `weave.bat` gestartet werden.
 
 ### Weitere Hilfsscripts
 
