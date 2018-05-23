@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "data", "/data"
   
   config.vm.provider "virtualbox" do |vb|
-     vb.memory = "3072"
+     vb.memory = "6144"
   end
 
   # Docker Provisioner
