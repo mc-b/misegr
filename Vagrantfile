@@ -36,6 +36,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 32280, host: 32280
   # jupyter/beakerX (ML)
   config.vm.network "forwarded_port", guest: 32088, host: 32088
+  config.vm.network "forwarded_port", guest: 32188, host: 32188
   config.vm.network "forwarded_port", guest: 32288, host: 32288
   # Kubernetes Port (ingress)
   config.vm.network "forwarded_port", guest: 30443, host: 30443
