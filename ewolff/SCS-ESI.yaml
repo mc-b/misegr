@@ -5,35 +5,35 @@ metadata:
   name: common
   namespace: scsesi
   labels:
-    app: scsesi-common
+    app: common
     group: ewolff-scsesi
     tier: frontend
 spec:
   ports:
   - port: 8080
   selector:
-    app: scsesi-common
+    app: common
   clusterIP: None        
 ---
 apiVersion: apps/v1beta2 
 kind: Deployment
 metadata:
-  name: scsesi-common
+  name: common
   namespace: scsesi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: scsesi-common
+      app: common
   template:
     metadata:
       labels:
-        app: scsesi-common
+        app: common
         group: ewolff-scsesi
         tier: frontend
     spec:
       containers:
-      - name: scsesi-common
+      - name: common
         image: misegr/scsesi_common
         imagePullPolicy: IfNotPresent        
         ports:
@@ -46,48 +46,53 @@ metadata:
   name: order
   namespace: scsesi
   labels:
-    app: scsesi-order
+    app: order
     group: ewolff-scsesi
     tier: frontend
 spec:
   ports:
   - port: 8080
   selector:
-    app: scsesi-order
+    app: order
   clusterIP: None        
 ---
 apiVersion: apps/v1beta2 
 kind: Deployment
 metadata:
-  name: scsesi-order
+  name: order
   namespace: scsesi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: scsesi-order
+      app: order
   template:
     metadata:
       labels:
-        app: scsesi-order
+        app: order
         group: ewolff-scsesi
         tier: frontend
     spec:
       containers:
-      - name: scsesi-order
+      - name: order
         image: misegr/scsesi_order
         imagePullPolicy: IfNotPresent        
         ports:
-        - containerPort: 8080        
+        - containerPort: 8080    
+        resources:
+         limits:
+          memory: 400Mi
+         requests:
+          memory: 100Mi              
 ---        
 # Varnish Server
 apiVersion: v1
 kind: Service
 metadata:
-  name: scsesi-varnish
+  name: varnish
   namespace: scsesi
   labels:
-    app: scsesi-varnish
+    app: varnish
     group: ewolff-scsesi
     tier: frontend
 spec:
@@ -97,7 +102,7 @@ spec:
     nodePort: 32080
     protocol: TCP
   selector:
-    app: scsesi-varnish
+    app: varnish
 ---
 apiVersion: apps/v1beta2 
 kind: Deployment
@@ -108,16 +113,16 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: scsesi-varnish
+      app: varnish
   template:
     metadata:
       labels:
-        app: scsesi-varnish
+        app: varnish
         group: ewolff-scsesi
         tier: frontend
     spec:
       containers:
-      - name: scsesi-varnish
+      - name: varnish
         image: misegr/scsesi_varnish
         imagePullPolicy: IfNotPresent        
         ports:

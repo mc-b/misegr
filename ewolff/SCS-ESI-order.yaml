@@ -5,7 +5,7 @@ metadata:
   name: order-standalone
   namespace: scsesi
   labels:
-    app: scsesi-order-standalone
+    app: order-standalone
     group: ewolff-scsesi
     tier: frontend
 spec:
@@ -14,28 +14,33 @@ spec:
   - port: 8080
     nodePort: 32090
   selector:
-    app: scsesi-order-standalone
+    app: order-standalone
 ---
 apiVersion: apps/v1beta2 
 kind: Deployment
 metadata:
-  name: scsesi-order-standalone
+  name: order-standalone
   namespace: scsesi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: scsesi-order-standalone
+      app: order-standalone
   template:
     metadata:
       labels:
-        app: scsesi-order-standalone
+        app: order-standalone
         group: ewolff-scsesi
         tier: frontend
     spec:
       containers:
-      - name: scsesi-order-standalone
+      - name: order-standalone
         image: misegr/scsesi_order
         imagePullPolicy: IfNotPresent        
         ports:
-        - containerPort: 8080        
+        - containerPort: 8080    
+        resources:
+         limits:
+          memory: 400Mi
+         requests:
+          memory: 100Mi            
