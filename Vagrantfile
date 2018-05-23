@@ -49,13 +49,19 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "data", "/data"
   
   config.vm.provider "virtualbox" do |vb|
-     vb.memory = "6144"
+     vb.memory = "3072"
   end
 
   # Docker Provisioner
   config.vm.provision "docker" do |d|
      d.pull_images "maven:3-alpine"
      d.pull_images "jenkinsci/blueocean"
+     # Cached Images damit der Start schneller geht
+     d.pull_images "camunda/camunda-bpm-platform"
+     d.pull_images "misegr/scsesi_varnish"
+     d.pull_images "misegr/mskafka_postgres"
+     d.pull_images "wurstmeister/kafka:1.0.0"
+     d.pull_images "wurstmeister/zookeeper:3.4.6"
   end
   
   config.vm.provision "shell", inline: <<-SHELL 
@@ -230,9 +236,9 @@ powershell.exe
 	# kubectl create -f https://raw.githubusercontent.com/mc-b/devops/master/kubernetes/mysql/adminer.yaml
 	
 	# Microservices
-	# cd /vagrant
+	cd /vagrant
 	# kubectl create -f ewolff/
-	# kubectl create -f ewolff/ms-kafka/
+	kubectl create -f ewolff/ms-kafka/
 	# kubectl create -f ewolff/ms-kubernetes/
 	# kubectl create -f bpmn/	
 	

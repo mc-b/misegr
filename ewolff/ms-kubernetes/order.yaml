@@ -40,8 +40,4 @@ spec:
         ports:
         - containerPort: 8080
           name: order
-        resources:
-         limits:
-          memory: 400Mi
-         requests:
-          memory: 100Mi            
+           
