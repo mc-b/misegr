@@ -43,8 +43,4 @@ spec:
         ports:
         - containerPort: 8080
           name: shipping
-        resources:
-         limits:
-          memory: 400Mi
-         requests:
-          memory: 100Mi            
+         
