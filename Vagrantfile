@@ -238,7 +238,7 @@ powershell.exe
 	# Microservices
 	cd /vagrant
 	# kubectl create -f ewolff/
-	kubectl create -f ewolff/ms-kafka/
+	# kubectl create -f ewolff/ms-kafka/
 	# kubectl create -f ewolff/ms-kubernetes/
 	# kubectl create -f bpmn/	
 	
