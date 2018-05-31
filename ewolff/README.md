@@ -147,6 +147,8 @@ Nach dem Test die Container wieder beenden, mittels:
 Kunden anzeigen (im JSON Format) und anlegen/ändern
 
 	curl -X GET http://lernkube:32280/customer/customer
+	
+	curl http://lernkube:32080/customer/search/findByName?name=Johnson
 
 	curl -X POST http://lernkube:32280/customer/form.html \
 	     -H "Content-Type: application/x-www-form-urlencoded" \
