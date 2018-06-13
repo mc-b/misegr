@@ -7,13 +7,9 @@ Sie wurden adaptiert und erweitert für [Kubernetes](https://kubernetes.io/).
 
 Um die Beispiele zu Compilieren braucht es eine Java/Maven Umgebung mit `docker` und `kubectl`.
 
-Diese steht im Verzeichnis `dockerindocker/maven-cli.yaml` zur Verfügung.
+Deshalb muss zuerst die Java/Maven Umgebung gestartet und in dessen Container gewechselt werden:
 
-Um die Befehle unten abzusetzen ist zuerst die Java/Maven Umgebung zu starten und in dessen Container zu wechseln:
-
-	git clone https://github.com/mc-b/devops.git
-	cd devops/kubernetes
-	kubectl create -f dockerindocker/maven-cli.yaml
+	kubectl create -f https://raw.githubusercontent.com/mc-b/devops/master/kubernetes/dockerindocker/maven-cli.yaml
 	kubectl exec -it maven-cli -- bash
 	
 ### SCS ESI Beispiel (Frontend)
@@ -22,7 +18,7 @@ Für in sich geschlossene Systeme müssen mehrere Frontends integriert werden. D
 
 Microservices compilieren und Docker Images aufbereiten (optional):
 
-	cd /src/ewolff
+	cd /src
 	git clone https://github.com/mc-b/SCS-ESI.git
 	cd SCS-ESI/scs-demo-esi-order/
 	mvn clean package -Dmaven.test.skip=true
@@ -31,12 +27,12 @@ Microservices compilieren und Docker Images aufbereiten (optional):
     docker build -t misegr/scsesi_common scs-demo-esi-common
     docker build -t misegr/scsesi_order scs-demo-esi-order
 	docker images | grep scs
+	exit
 
 Die compilierten Microservices werden im Startverzeichnis der VM abgelegt. 	
 
 Anschliessend können die Microservices gestartet werden:
 	
-	cd /src/ewolff 
 	kubectl create -f SCS-ESI.yaml
 	kubectl create -f SCS-ESI-order.yaml
 	kubectl get pods -n scsesi
@@ -58,7 +54,7 @@ Dies ist ein Beispiel um zu zeigen, wie Kafka für die Kommunikation zwischen Mi
 
 Microservices compilieren und Docker Images aufbereiten (optional):
 
-	cd /src/ewolff
+	cd /src
 	git clone https://github.com/mc-b/microservice-kafka.git
 	cd microservice-kafka/microservice-kafka
 	mvn clean package -Dmaven.test.skip=true
@@ -70,12 +66,12 @@ Microservices compilieren und Docker Images aufbereiten (optional):
     docker build -t misegr/mskafka_shipping microservice-kafka/microservice-kafka-shipping
     docker build -t misegr/mskafka_invoicing microservice-kafka/microservice-kafka-invoicing
 	docker images | grep mskafka
+	exit
 	
 Die compilierten Microservices werden im Startverzeichnis der VM abgelegt. 	
 
 Anschliessend können die Microservices gestartet werden:
 	
-	cd /src/ewolff 
 	kubectl create -f ms-kafka/
     kubectl get pods -n ms-kafka	
 
@@ -114,7 +110,7 @@ Das System hat drei Microservices:
 
 Microservices compilieren und Docker Images aufbereiten (optional):
 
-	cd /src/ewolff
+	cd /src
 	git clone https://github.com/mc-b/microservice-kubernetes.git
 	cd microservice-kubernetes/microservice-kubernetes-demo/
 	mvn clean package -Dmaven.test.skip=true
@@ -127,12 +123,12 @@ Microservices compilieren und Docker Images aufbereiten (optional):
 	docker build -t misegr/microservice-kubernetes-demo-order:v0.0.1 microservice-kubernetes-demo-order
 	docker build -t misegr/microservice-kubernetes-demo-hystrix-dashboard:v0.0.1 microservice-kubernetes-demo-hystrix-dashboard
 	docker images | grep microservice
+	exit
    
 Die compilierten Microservices werden im Startverzeichnis der VM abgelegt. 	
 
 Anschliessend können die Microservices gestartet werden:
 
-	cd /src/ewolff
 	kubectl create -f ms-kubernetes/
     kubectl get pods -n ms-kubernetes	
 
