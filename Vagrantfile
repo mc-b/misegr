@@ -50,7 +50,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "data", "/data"
   
   config.vm.provider "virtualbox" do |vb|
-     vb.memory = "6144"
+     vb.memory = "10240"
   end
 
   # Docker Provisioner
@@ -197,6 +197,9 @@ WantedBy=multi-user.target
     kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
     kubectl apply -f /vagrant/addons/dashboard-admin.yaml
 	
+    # Standard Persistent Volume und Claim
+    kubectl create -f /vagrant/data/
+    	
 	# Weave Scope 
 	kubectl apply -f "https://cloud.weave.works/k8s/scope.yaml?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 	
