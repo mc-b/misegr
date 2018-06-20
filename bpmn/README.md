@@ -5,7 +5,7 @@ Die [Business Process Model and Notation (BPMN, deutsch Geschäftsprozessmodell 
 
 Die Beispiele basieren auf dem [BPMN Tutorial](https://github.com/bernet-tbz/bpmn-tutorial) entwickelt für das Informatik Modul [254 Geschäftsprozesse beschreiben](https://cf.ict-berufsbildung.ch/modules.php?name=Mbk&a=20101&cmodnr=254&noheader=1).
 
-Die Beispiele `camunda` und `frontend` verwenden das Ingress Add-on von Kubernetes und sind mittels `https://<Cluster-IP>:30443/<Prefix Service>` erreichbar, z.B. `https://192.168.60.100:30443/frontend`.
+Die Beispiele `camunda` und `frontend` verwenden das Ingress Add-on von Kubernetes und sind mittels `https://<Cluster-IP>:30443/<Prefix Service>` erreichbar, z.B. `https://localhost:30443/camunda/`.
 
 ### BPMN Workflow Engine
 
@@ -17,7 +17,7 @@ Starten der Workflow Engine:
 
 	kubectl create -f camunda.yaml
 
-Die Oberfläche kann mittels [https://Cluster-IP:30443/camunda](https://192.168.60.100:30443/camunda) erreicht werden.
+Die Oberfläche kann mittels [https://Cluster-IP:30443/camunda](https://localhost:30443/camunda) erreicht werden.
 
 * Username: demo
 * Password: demo
@@ -34,7 +34,7 @@ Nach dem Starten muss der Rechnungsprozess in die Workflow Engine importiert wer
 
 ### Frontend
 
-Ein einfaches in HTML und JavaScript implementiertes Frontend, erreichbar mittels [https://Cluster-IP:30443/frontend/index.html](https://192.168.60.100:30443/frontend/index.html).
+Ein einfaches in HTML und JavaScript implementiertes Frontend, erreichbar mittels [https://Cluster-IP:30443/frontend/index.html](https://localhost:30443/frontend/index.html).
 
 Starten mittels:
 

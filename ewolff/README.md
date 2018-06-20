@@ -37,7 +37,7 @@ Anschliessend können die Microservices gestartet werden:
 	kubectl create -f SCS-ESI-order.yaml
 	kubectl get pods -n scsesi
     
-Probieren mittels [http://ip NodePort:32080](http://192.168.60.100:32080) und [http://ip NodePort:32090](http://192.168.60.100:32090).
+Probieren mittels [http://ip NodePort:32080](http://localhost:32080) und [http://ip NodePort:32090](http://localhost:32090).
 
 Nach dem Test die Container wieder beenden, mittels:
 
@@ -75,7 +75,7 @@ Anschliessend können die Microservices gestartet werden:
 	kubectl create -f ms-kafka/
     kubectl get pods -n ms-kafka	
 
-Probieren mittels [http://ip NodePort:32180](http://192.168.60.100:32180).
+Probieren mittels [http://ip NodePort:32180](http://localhost:32180).
 
 Nach dem Test die Container wieder beenden, mittels:
 
@@ -132,32 +132,32 @@ Anschliessend können die Microservices gestartet werden:
 	kubectl create -f ms-kubernetes/
     kubectl get pods -n ms-kubernetes	
 
-Probieren mittels [http://ip NodePort:32280](http://192.168.60.100:32280).
+Probieren mittels [http://ip NodePort:32280](http://localhost:32280).
 
 Nach dem Test die Container wieder beenden, mittels:
 
 	kubectl delete -f ms-kubernetes/
 	
-#### Testen
+#### Testen (in der Bash Shell)
 
 Kunden anzeigen (im JSON Format) und anlegen/ändern
 
-	curl -X GET http://lernkube:32280/customer/customer
+	curl -X GET http://localhost:32280/customer/customer
 	
-	curl http://lernkube:32080/customer/search/findByName?name=Johnson
+	curl http://localhost:32080/customer/search/findByName?name=Johnson
 
-	curl -X POST http://lernkube:32280/customer/form.html \
+	curl -X POST http://localhost:32280/customer/form.html \
 	     -H "Content-Type: application/x-www-form-urlencoded" \
 		 -d "name=name2" -d "firstname=firstname2" -d "email=mail@ch.ch" -d "street=street2" -d "city=city 2" 
 
 
 Produkte anzeigen 
 
-	curl -X GET http://x1:32280/catalog/catalog
+	curl -X GET http://localhost:32280/catalog/catalog
 
 Produkte Bestellen
 
-	curl -X POST http://x1:32280/order/ \
+	curl -X POST http://localhost:32280/order/ \
 	     -H "Content-Type: application/x-www-form-urlencoded" \
 	     -d "customerId=1" \
 	     -d "orderLine[0].count=1" \
