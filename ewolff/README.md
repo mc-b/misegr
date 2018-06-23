@@ -10,14 +10,17 @@ Um die Beispiele zu Compilieren braucht es eine Java/Maven Umgebung mit `docker`
 Deshalb muss zuerst die Java/Maven Umgebung gestartet und in dessen Container gewechselt werden:
 
 	kubectl create -f https://raw.githubusercontent.com/mc-b/devops/master/kubernetes/dockerindocker/maven-cli.yaml
-	kubectl exec -it maven-cli -- bash
 	
 ### SCS ESI Beispiel (Frontend)
 
 Für in sich geschlossene Systeme müssen mehrere Frontends integriert werden. Dieses Beispiel zeigt, wie dies zu tun ist. Varnish dient als Cache, und ESI (Edge Side Includes) wird verwendet, um mehrere Backends in eine HTTP-Site zu integrieren.
 
-Microservices compilieren und Docker Images aufbereiten (optional):
+#### Compilieren (optional)
 
+Wechsel in Java/Maven Container, Microservices compilieren und Docker Images aufbereiten:
+
+	kubectl exec -it maven-cli -- bash
+	
 	cd /src
 	git clone https://github.com/mc-b/SCS-ESI.git
 	cd SCS-ESI/scs-demo-esi-order/
@@ -31,7 +34,9 @@ Microservices compilieren und Docker Images aufbereiten (optional):
 
 Die compilierten Microservices werden im Startverzeichnis der VM abgelegt. 	
 
-Anschliessend können die Microservices gestartet werden:
+#### Starten
+
+Anschliessend können die Microservices gestartet und mit `kubectl get pods` der aktuelle Zustand abgefragt werden:
 	
 	kubectl create -f SCS-ESI.yaml
 	kubectl create -f SCS-ESI-order.yaml
@@ -52,8 +57,12 @@ Nach dem Test die Container wieder beenden, mittels:
 
 Dies ist ein Beispiel um zu zeigen, wie Kafka für die Kommunikation zwischen Microservices verwendet werden kann.
 
-Microservices compilieren und Docker Images aufbereiten (optional):
+#### Compilieren (optional)
 
+Wechsel in Java/Maven Container, Microservices compilieren und Docker Images aufbereiten:
+
+	kubectl exec -it maven-cli -- bash
+	
 	cd /src
 	git clone https://github.com/mc-b/microservice-kafka.git
 	cd microservice-kafka/microservice-kafka
@@ -70,7 +79,9 @@ Microservices compilieren und Docker Images aufbereiten (optional):
 	
 Die compilierten Microservices werden im Startverzeichnis der VM abgelegt. 	
 
-Anschliessend können die Microservices gestartet werden:
+#### Starten
+
+Anschliessend können die Microservices gestartet und mit `kubectl get pods` der aktuelle Zustand abgefragt werden:
 	
 	kubectl create -f ms-kafka/
     kubectl get pods -n ms-kafka	
@@ -108,8 +119,12 @@ Das System hat drei Microservices:
 - Customer für Kundendaten
 - Catalog für die Waren
 
-Microservices compilieren und Docker Images aufbereiten (optional):
+#### Compilieren (optional)
 
+Wechsel in Java/Maven Container, Microservices compilieren und Docker Images aufbereiten:
+
+	kubectl exec -it maven-cli -- bash
+	
 	cd /src
 	git clone https://github.com/mc-b/microservice-kubernetes.git
 	cd microservice-kubernetes/microservice-kubernetes-demo/
@@ -127,7 +142,9 @@ Microservices compilieren und Docker Images aufbereiten (optional):
    
 Die compilierten Microservices werden im Startverzeichnis der VM abgelegt. 	
 
-Anschliessend können die Microservices gestartet werden:
+#### Starten
+
+Anschliessend können die Microservices gestartet und mit `kubectl get pods` der aktuelle Zustand abgefragt werden:
 
 	kubectl create -f ms-kubernetes/
     kubectl get pods -n ms-kubernetes	
