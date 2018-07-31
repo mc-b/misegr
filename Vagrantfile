@@ -40,6 +40,9 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 32288, host: 32288
   # Kubernetes Port (ingress)
   config.vm.network "forwarded_port", guest: 30443, host: 30443
+  # docker registry / frontend
+  config.vm.network "forwarded_port", guest: 32500, host: 32500
+  config.vm.network "forwarded_port", guest: 32580, host: 32580  
       
   # default router.
   # config.vm.provision "shell",
