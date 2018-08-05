@@ -3,7 +3,7 @@
 #	Installationsscript misegr
 
 # Kubernetes Namespaces Microservices
-for	n in scsesi, ms-kafka, ms-kubernetes
+for	n in scsesi ms-kafka ms-kubernetes
 do
 	kubectl create namespace ${n}
 done
