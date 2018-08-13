@@ -9,7 +9,7 @@ Um die Beispiele zu Compilieren braucht es eine Java/Maven Umgebung mit `docker`
 
 Deshalb muss zuerst die Java/Maven Umgebung gestartet und in dessen Container gewechselt werden:
 
-	kubectl create -f https://raw.githubusercontent.com/mc-b/devops/master/kubernetes/dockerindocker/maven-cli.yaml
+	kubectl create -f https://raw.githubusercontent.com/mc-b/dok/master/dockerindocker/maven-cli.yaml
 	
 ### SCS ESI Beispiel (Frontend)
 
@@ -38,16 +38,16 @@ Die compilierten Microservices werden im Startverzeichnis der VM abgelegt.
 
 Anschliessend können die Microservices gestartet und mit `kubectl get pods` der aktuelle Zustand abgefragt werden:
 	
-	kubectl create -f SCS-ESI.yaml
-	kubectl create -f SCS-ESI-order.yaml
+	kubectl create -f misegr/ewolff/SCS-ESI.yaml
+	kubectl create -f misegr/ewolff/SCS-ESI-order.yaml
 	kubectl get pods -n scsesi
     
 Probieren mittels [http://ip NodePort:32080](http://localhost:32080) und [http://ip NodePort:32090](http://localhost:32090).
 
 Nach dem Test die Container wieder beenden, mittels:
 
-	kubectl delete -f SCS-ESI.yaml
-	kubectl delete -f SCS-ESI-order.yaml
+	kubectl delete -f misegr/ewolff/SCS-ESI.yaml
+	kubectl delete -f misegr/ewolff/SCS-ESI-order.yaml
 
 #### Links
 
@@ -83,14 +83,14 @@ Die compilierten Microservices werden im Startverzeichnis der VM abgelegt.
 
 Anschliessend können die Microservices gestartet und mit `kubectl get pods` der aktuelle Zustand abgefragt werden:
 	
-	kubectl create -f ms-kafka/
+	kubectl create -f misegr/ewolff/ms-kafka/
     kubectl get pods -n ms-kafka	
 
 Probieren mittels [http://ip NodePort:32180](http://localhost:32180).
 
 Nach dem Test die Container wieder beenden, mittels:
 
-	kubectl delete -f ms-kafka/
+	kubectl delete -f misegr/ewolff/ms-kafka/
 
 #### Testen
 
@@ -146,14 +146,14 @@ Die compilierten Microservices werden im Startverzeichnis der VM abgelegt.
 
 Anschliessend können die Microservices gestartet und mit `kubectl get pods` der aktuelle Zustand abgefragt werden:
 
-	kubectl create -f ms-kubernetes/
+	kubectl create -f misegr/ewolff/ms-kubernetes/
     kubectl get pods -n ms-kubernetes	
 
 Probieren mittels [http://ip NodePort:32280](http://localhost:32280).
 
 Nach dem Test die Container wieder beenden, mittels:
 
-	kubectl delete -f ms-kubernetes/
+	kubectl delete -f misegr/ewolff/ms-kubernetes/
 	
 #### Testen (in der Bash Shell)
 

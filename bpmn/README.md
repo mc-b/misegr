@@ -15,7 +15,7 @@ Die Camunda Workflow Engine unterstützt (Micro-)Service Orchestration, Human Wo
 
 Starten der Workflow Engine:
 
-	kubectl create -f camunda.yaml
+	kubectl create -f misegr/bpmn/camunda.yaml
 
 Die Oberfläche kann mittels [https://Cluster-IP:30443/camunda](https://localhost:30443/camunda) erreicht werden.
 
@@ -24,6 +24,7 @@ Die Oberfläche kann mittels [https://Cluster-IP:30443/camunda](https://localhos
 	
 Nach dem Starten muss der Rechnungsprozess in die Workflow Engine importiert werden. Dies geht am einfachsten in der Bash Umgebung mit `curl`
 
+	cd misegr/bpmn/
 	curl -k -w "\n" \
 	-H "Accept: application/json" \
 	-F "deployment-name=rechnung" \
@@ -38,7 +39,7 @@ Ein einfaches in HTML und JavaScript implementiertes Frontend, erreichbar mittel
 
 Starten mittels:
 
-	kubectl create -f bpmn-frontend.yaml
+	kubectl create -f misegr/bpmn/bpmn-frontend.yaml
 
 Nach Eingabe von Rechnungs-Nummer und Betrag und drücken von `+` wird der Rechnungsprozess gestartet. 
 
@@ -77,7 +78,7 @@ Das Backend ist in Java implementiert als J2EE Server kommt [Grizzly](https://ja
 
 Starten mittels:
 
-	kubectl create -f bpmn-backend.yaml
+	kubectl create -f misegr/bpmn/bpmn-backend.yaml
 	
 Der Service wird nicht am Cluster veröffentlicht und ist nur aus einem Pod heraus mittels 
 
