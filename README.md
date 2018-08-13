@@ -15,8 +15,8 @@ Projekt [lernkube](https://github.com/mc-b/lernkube), auf der Git/Bash Kommandoz
 
 *Optional*: Zusätzliche Services wie `jenkins` und SQL Web UI `adminer` starten.
 
-	kubectl create -f https://raw.githubusercontent.com/mc-b/dok/master/kubernetes/devops/jenkins.yaml
-	kubectl create -f https://raw.githubusercontent.com/mc-b/dok/master/kubernetes/mysql/adminer.yaml
+	kubectl create -f https://raw.githubusercontent.com/mc-b/dok/master/devops/jenkins.yaml
+	kubectl create -f https://raw.githubusercontent.com/mc-b/dok/master/mysql/adminer.yaml
 	
 Und alle Microservices starten
 	
