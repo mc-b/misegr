@@ -16,8 +16,8 @@ Projekt [lernkube](https://github.com/mc-b/lernkube), auf der Git/Bash Kommandoz
 
 *Optional*: Zusätzliche Services wie `jenkins` und SQL Web UI `adminer` starten.
 
-	kubectl create -f https://raw.githubusercontent.com/mc-b/dok/master/devops/jenkins.yaml
-	kubectl create -f https://raw.githubusercontent.com/mc-b/dok/master/mysql/adminer.yaml
+	kubectl create -f https://raw.githubusercontent.com/mc-b/duk/master/devops/jenkins.yaml
+	kubectl create -f https://raw.githubusercontent.com/mc-b/duk/master/mysql/adminer.yaml
 	
 Und alle Microservices starten
 	
@@ -34,7 +34,7 @@ Es stehen folgende Microservice Beispiel zur Verfügung
 
 ### Links
 
-* [Maven Umgebung](https://github.com/mc-b/dok/tree/master/dockerindocker)
-* [Jenkins Umgebung](https://github.com/mc-b/dok/tree/master/devops#jenkins-mit-blueocean)
-* [Interaktives Lernen mit Jupyter/BeakerX](https://github.com/mc-b/dok/tree/master/jupyter)
+* [Maven Umgebung](https://github.com/mc-b/duk/tree/master/dockerindocker)
+* [Jenkins Umgebung](https://github.com/mc-b/duk/tree/master/devops#jenkins-mit-blueocean)
+* [Interaktives Lernen mit Jupyter/BeakerX](https://github.com/mc-b/duk/tree/master/jupyter)
 * [Weitere Kubernetes Beispiele](https://github.com/mc-b/dok#weitere-beispiele)

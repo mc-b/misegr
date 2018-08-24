@@ -9,7 +9,7 @@ Um die Beispiele zu Compilieren braucht es eine Java/Maven Umgebung mit `docker`
 
 Deshalb muss zuerst die Java/Maven Umgebung gestartet und in dessen Container gewechselt werden:
 
-	kubectl create -f https://raw.githubusercontent.com/mc-b/dok/master/dockerindocker/maven-cli.yaml
+	kubectl create -f https://raw.githubusercontent.com/mc-b/duk/master/dockerindocker/maven-cli.yaml
 	
 ### SCS ESI Beispiel (Frontend)
 
