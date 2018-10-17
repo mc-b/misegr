@@ -19,7 +19,7 @@ kind: Deployment
 metadata:
   name: bpmn-frontend
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: bpmn-frontend
@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: bpmn-frontend
-        image: misegr/bpmn-frontend
+        image: misegr/bpmn-frontend:latest
         imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 80
