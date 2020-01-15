@@ -38,7 +38,7 @@ spec:
         - containerPort: 8080
           name: camunda    
 ---
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Ingress
 metadata:
   name: camunda
@@ -54,7 +54,7 @@ spec:
           serviceName: camunda
           servicePort: 8080
 ---
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Ingress
 metadata:
   name: engine-rest
