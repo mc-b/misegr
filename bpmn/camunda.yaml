@@ -10,6 +10,7 @@ spec:
   type: NodePort
   ports:
   - port: 8080
+    nodePort: 30880   
     protocol: TCP
   selector:
     app: camunda
