@@ -38,7 +38,7 @@ spec:
         - containerPort: 8080
           name: camunda    
 ---
-apiVersion: extensions/v1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: camunda
