@@ -15,7 +15,7 @@ spec:
     app: common
   clusterIP: None        
 ---
-apiVersion: apps/v1beta2 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: common
@@ -56,7 +56,7 @@ spec:
     app: order
   clusterIP: None        
 ---
-apiVersion: apps/v1beta2 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: order
@@ -99,7 +99,7 @@ spec:
   selector:
     app: varnish
 ---
-apiVersion: apps/v1beta2 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: scsesi-varnish
