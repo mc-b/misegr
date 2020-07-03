@@ -12,7 +12,6 @@ spec:
       name: web
   selector:
     app: order
-    tier: microservice
   clusterIP: None
 ---
 apiVersion: apps/v1
@@ -27,7 +26,6 @@ spec:
   selector:
     matchLabels:
       app: order
-      tier: microservice
   strategy:
     type: Recreate
   template:
