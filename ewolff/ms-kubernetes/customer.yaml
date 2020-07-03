@@ -8,6 +8,7 @@ metadata:
 spec:
   ports:
     - port: 8080
+      name: web
   selector:
     app: customer
     tier: microservice
@@ -39,5 +40,5 @@ spec:
         imagePullPolicy: IfNotPresent    
         ports:
         - containerPort: 8080
-          name: customer
+          name: web
          
