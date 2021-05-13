@@ -50,6 +50,9 @@ spec:
   - http:
       paths:
       - path: /frontend
+        pathType: Prefix  
         backend:
-          serviceName: bpmn-frontend
-          servicePort: 80
+          service:
+            name: bpmn-frontend
+            port:
+              number: 80     
