@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: common
-        image: misegr/scsesi_common
+        image: registry.gitlab.com/mc-b/scs-esi/misegr/scsesi_common
         imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 8080    
@@ -75,7 +75,7 @@ spec:
     spec:
       containers:
       - name: order
-        image: misegr/scsesi_order
+        image: registry.gitlab.com/mc-b/scs-esi/misegr/scsesi_order
         imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 8080    
@@ -118,7 +118,7 @@ spec:
     spec:
       containers:
       - name: varnish
-        image: misegr/scsesi_varnish
+        image: registry.gitlab.com/mc-b/scs-esi/varnish
         imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 8080
