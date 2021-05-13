@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: kafka
-        image: wurstmeister/kafka:1.0.0
+        image: registry.gitlab.com/mc-b/misegr/kafka:1.0.0
         imagePullPolicy: IfNotPresent    
         env:
         - name: KAFKA_ADVERTISED_HOST_NAME

@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: apache
-        image: misegr/mskafka_apache
+        image: registry.gitlab.com/mc-b/misegr/mskafka_apache
         imagePullPolicy: IfNotPresent          
         ports:
         - containerPort: 80

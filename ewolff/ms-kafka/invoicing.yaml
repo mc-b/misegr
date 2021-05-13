@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: invoicing
-        image: misegr/mskafka_invoicing
+        image: registry.gitlab.com/mc-b/misegr/mskafka_invoicing
         imagePullPolicy: IfNotPresent    
         env:
         - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
