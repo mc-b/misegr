@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: order
-        image: registry.gitlab.com/mc-b/misegr/mskafka_order
+        image: registry.gitlab.com/mc-b/microservice-kafka/mskafka_order
         imagePullPolicy: IfNotPresent    
         env:
         - name: SPRING_KAFKA_BOOTSTRAP_SERVERS

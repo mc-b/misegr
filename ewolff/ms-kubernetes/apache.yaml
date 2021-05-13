@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: apache
-        image: registry.gitlab.com/mc-b/misegr/microservice-kubernetes-demo-apache:v0.0.1
+        image: registry.gitlab.com/mc-b/microservice-kubernetes/microservice-kubernetes-demo-apache:v0.0.1
         imagePullPolicy: IfNotPresent          
         ports:
         - containerPort: 80

@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: zookeeper
-        image: registry.gitlab.com/mc-b/misegr/zookeeper:3.4.6
+        image: registry.gitlab.com/mc-b/microservice-kafka/zookeeper:3.4.6
         imagePullPolicy: IfNotPresent    
         ports:
         - containerPort: 2181
