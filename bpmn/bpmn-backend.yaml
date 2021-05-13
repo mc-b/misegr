@@ -31,7 +31,7 @@ spec:
     spec:
       containers:        
       - name: bpmn-backend
-        image: misegr/bpmn-backend:latest
+        image: registry.gitlab.com/mc-b/bpmn-tutorial/bpmn-backend:latest
         imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 8090

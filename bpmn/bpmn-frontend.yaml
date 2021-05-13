@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: bpmn-frontend
-        image: misegr/bpmn-frontend:latest
+        image: registry.gitlab.com/mc-b/bpmn-tutorial/bpmn-frontend:latest
         imagePullPolicy: IfNotPresent        
         ports:
         - containerPort: 80
