@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: postgres
-        image: registry.gitlab.com/mc-b/microservice-kubernetes/mskafka_postgres
+        image: registry.gitlab.com/mc-b/microservice-kafka/mskafka_postgres
         imagePullPolicy: IfNotPresent    
         env:
         - name: POSTGRES_PASSWORD
