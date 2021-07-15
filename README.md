@@ -9,7 +9,6 @@ Projekt [lernkube](https://github.com/mc-b/lernkube), auf der Git/Bash Kommandoz
 	git clone https://github.com/mc-b/lernkube
 	cd lernkube
 	cp templates/MISEGR.yaml config.yaml
-	vagrant plugin install vagrant-disksize
 	vagrant up
 
 **Weitere Installationsmöglichkeiten und Details** zur Installation siehe Projekt [lernkube](https://github.com/mc-b/lernkube).
