@@ -2,5 +2,5 @@ apiVersion: v1
 kind: Namespace
 metadata:
   labels:
-    kubernetes.io/metadata.name: ms-kubernetes
-  name: ms-kubernetes
+    kubernetes.io/metadata.name: ms-rest
+  name: ms-rest

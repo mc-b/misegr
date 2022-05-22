@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: hystrix-dashboard
-  namespace: ms-kubernetes  
+  namespace: ms-rest  
   labels:
     app: hystrix-dashboard
     group: middleware
@@ -21,7 +21,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hystrix-dashboard
-  namespace: ms-kubernetes  
+  namespace: ms-rest  
 spec:
   replicas: 1
   selector:

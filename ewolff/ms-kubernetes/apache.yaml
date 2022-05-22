@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: apache
-  namespace: ms-kubernetes  
+  namespace: ms-rest  
   labels:
     app: apache
     group: web
@@ -21,7 +21,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: apache
-  namespace: ms-kubernetes  
+  namespace: ms-rest  
 spec:
   replicas: 1
   selector:
