@@ -5,11 +5,12 @@ metadata:
   namespace: ms-kubernetes  
   labels:
     app: order
-    tier: microservice    
+    tier: microservice  
+    service: order
 spec:
   ports:
     - port: 8080
-      name: web
+      name: http
   selector:
     app: order
   clusterIP: None

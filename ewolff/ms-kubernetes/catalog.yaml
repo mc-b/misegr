@@ -5,11 +5,12 @@ metadata:
   namespace: ms-kubernetes  
   labels:
     app: catalog
-    tier: microservice    
+    tier: microservice  
+    service: catalog  
 spec:
   ports:
     - port: 8080
-      name: web
+      name: http
   selector:
     app: catalog
   clusterIP: None

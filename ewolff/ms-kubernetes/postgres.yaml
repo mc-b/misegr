@@ -5,6 +5,7 @@ metadata:
   namespace: ms-kubernetes  
   labels:
     app: postgres
+    service: postgres
 spec:
   ports:
     - port: 5432
