@@ -5,7 +5,7 @@
 # Kubernetes Namespaces Microservices
 for	n in scsesi ms-kafka ms-kubernetes
 do
-	kubectl create namespace ${n}
+	microk8s kubectl create namespace ${n}
 done
 
 # Jupyter Scripte etc. Allgemein verfuegbar machen
