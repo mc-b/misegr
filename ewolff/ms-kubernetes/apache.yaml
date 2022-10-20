@@ -12,7 +12,6 @@ spec:
   type: NodePort
   ports:
   - port: 80
-    nodePort: 32280
     name: http
   selector:
     app: apache
